@@ -1,0 +1,178 @@
+
+.projectview_page{
+    background-color: rgb(180, 202, 221);
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+.projectview_page h1 {
+    font-size: 2.4rem;
+    color: black;
+    margin-top: 20px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.projectview_page h2 {
+    font-size: 1.8rem;
+    color: black;
+    margin-top: 19px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.projectview_page p {
+    color: rgb(109, 109, 109);
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.projectpage-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    height: 62px;
+}
+
+.nav-name {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    height: fit-content;
+    color: #469de5;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.close_project_button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border-radius: 12px;
+    background-color: #469de5;
+    color: white;
+}
+
+.close_project_button:hover { 
+    background-color: #4195da;
+}
+
+.projectview-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 175px); 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.whiteboard-container {
+    margin: 50px 10px 10px 20px;
+    text-align: center;
+    grid-area: 1 / 1 / 7 / 2;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.whiteboard-container h2 {
+    position: relative;
+    text-align: left;
+    padding-left: 15px;
+    top: 84px;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    z-index: -1;
+}
+
+.whiteboard {
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.projectinfo {
+    display: flex;
+    grid-area: 1 / 2 / 2 / 4;
+    margin: 50px 20px 0px 10px;
+    padding-left: 20px;
+    /* border-bottom: 1px solid rgb(141, 141, 141); */
+    background-color: white;
+    border-radius: 20px;
+}
+.delete-Button {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    border-radius: 12px;
+    background-color: red;
+    color: white;
+}
+
+.info {
+    width: 70%;
+    text-align: left;
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+.members {
+    width: 100%;
+    height: 50%;
+    text-align: left;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.members-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.members button {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    padding: 0;
+    color: black;
+    background-color: transparent;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+}
+
+.members  button:hover {
+    border: transparent;
+}
+
+.profile-icons-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.projectcontent {
+    display: flex;
+    grid-area: 2 / 2 / 6 / 4;
+    margin: 20px 20px 15px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.files {
+    width: 40%;
+    height: 100%;
+    margin-right: 10px;
+    padding: 0px 20px;
+    background-color: white;
+    border-radius: 20px;
+}
