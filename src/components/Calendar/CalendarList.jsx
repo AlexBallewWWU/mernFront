@@ -16,7 +16,7 @@ function CalendarList (){
             date : parseDate(date),
             email : localStorage.getItem("email")
         };
-        const newToDoList = await fetch("http://localhost:3000/api/getList", {
+        const newToDoList = await fetch("https://mernback-r8i0.onrender.com/api/getList", {
             method: "POST",
             headers: {
               "Content-Type" : "application/json"
@@ -44,7 +44,7 @@ function CalendarList (){
                     email: localStorage.getItem("email"),
                     list: toDoList,
                 }
-                const response = await fetch("http://localhost:3000/api/setList", {
+                const response = await fetch("https://mernback-r8i0.onrender.com/api/setList", {
                     method: "POST",
                     headers: {
                       "Content-Type" : "application/json"

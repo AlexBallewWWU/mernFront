@@ -20,7 +20,7 @@ function HomePage() {
         const e = {
             email: localStorage.getItem("email")
         };
-        const newProjects = await fetch("http://localhost:3000/api/getProjects", {
+        const newProjects = await fetch("https://mernback-r8i0.onrender.com/api/getProjects", {
             method: "POST",
             headers: {
               "Content-Type" : "application/json"
@@ -69,7 +69,7 @@ function HomePage() {
                 description: projectDescription,
                 users: emailList
             }
-            const response = await fetch("http://localhost:3000/api/createProject", {
+            const response = await fetch("https://mernback-r8i0.onrender.com/api/createProject", {
                 method: "POST",
                 headers: {
                   "Content-Type" : "application/json"

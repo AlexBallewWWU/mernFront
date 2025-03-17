@@ -25,7 +25,7 @@ function ProjectView() {
   };
   const deleteProject = async () => {
     try {
-      const del = await fetch("http://localhost:3000/api/deleteProject", {
+      const del = await fetch("https://mernback-r8i0.onrender.com/api/deleteProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function ProjectView() {
         email: curUser,
       };
 
-      const del = await fetch("http://localhost:3000/api/leaveProject", {
+      const del = await fetch("https://mernback-r8i0.onrender.com/api/leaveProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function ProjectView() {
         email: newUser,
       };
 
-      const add = await fetch("http://localhost:3000/api/addUserToProject", {
+      const add = await fetch("https://mernback-r8i0.onrender.com/api/addUserToProject", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
