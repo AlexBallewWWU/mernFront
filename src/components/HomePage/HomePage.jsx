@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import "./HomePage.css";
-
+import CalendarList from "../Calendar/CalendarList";
 
 const SERVICE_ID = "service_phfpt64"
 const TEMPLATE_ID = "template_v3tskjp"
@@ -20,7 +20,7 @@ function HomePage() {
         const e = {
             email: localStorage.getItem("email")
         };
-        const newProjects = await fetch("https://mernback-r8i0.onrender.com/api/getProjects", {
+        const newProjects = await fetch("http://localhost:3000/api/getProjects", {
             method: "POST",
             headers: {
               "Content-Type" : "application/json"
@@ -69,7 +69,7 @@ function HomePage() {
                 description: projectDescription,
                 users: emailList
             }
-            const response = await fetch("https://mernback-r8i0.onrender.com/api/createProject", {
+            const response = await fetch("http://localhost:3000/api/createProject", {
                 method: "POST",
                 headers: {
                   "Content-Type" : "application/json"
@@ -117,7 +117,7 @@ function HomePage() {
         const templateParams = {
             to: emailList[index],
             from_name: "CloudCollabSpace",
-            message: "You've been invited to work on the project " + projectName + " http://localhost:5173/"
+            message: "You've been invited to work on the project " + projectName + " https://bucolic-salmiakki-8dc5f3.netlify.app/"
         };
 
         emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
@@ -140,11 +140,11 @@ function HomePage() {
                     <div className="navbar-name"> CloudCollabSpace </div>
                 </div>
                 <button className="logout_button" onClick={logout}>Logout</button>
-                <div className="project-list">
+                <div className="project-list" id="Project List">
                     <ul>
                         {
-                            projects.map((Project) => (
-                                <div>
+                            projects.map((Project, index) => (
+                                <div key={index}>
                                     <button onClick={() => openProject(Project)}> 
                                         <h2>{Project.name}</h2>
                                         <p>{Project.description}</p>
@@ -155,7 +155,7 @@ function HomePage() {
                         }
                     </ul>
                 </div>
-                <div className="create-project">
+                <div className="create-project" id="Create Project">
                     <h1>Create New Project +</h1>
                     <p>Project Name</p>
                     <input type="text" className="project-input" placeholder="Project Name" value={projectName} onChange={handleProjectName}/>
@@ -165,37 +165,13 @@ function HomePage() {
                     {emailList.map((inputValue, index) => (
                         <input key={index} type="text" className="project-input" placeholder="Email Address" value={inputValue} onChange={(event) => handleInviteChange(event, index)}/>
                     ))}
-                    {/* <input type="text" className="project-input" placeholder="Email Address" value={emailList} onChange={(event) => setEmailList(event.target.value)}/> */}
                     <button className="create-button" onClick={handleProject}>Create project</button>
                 </div>
-                <Calendar></Calendar>
+                <CalendarList></CalendarList>
             </div>
         </>
     );
 }
 
-function Calendar (){
-    return (
-        <div className="calendar">
-            <h1> Weekly Calendar</h1>
-            <dl>
-                <dt>Sunday</dt>
-                <dd>To do:</dd>
-                <dt>Monday</dt>
-                <dd>To do:</dd>
-                <dt>Tuesday</dt>
-                <dd>To do:</dd>
-                <dt>Wednesday</dt>
-                <dd>To do:</dd>
-                <dt>Thursday</dt>
-                <dd>To do:</dd>
-                <dt>Friday</dt>
-                <dd>To do:</dd>
-                <dt>Saturday</dt>
-                <dd>To do:</dd>
-            </dl>
-        </div>
-    )
-}
 
 export default HomePage;

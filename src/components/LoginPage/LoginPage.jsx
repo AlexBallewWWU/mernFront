@@ -42,7 +42,7 @@ const LoginPage = () => {
   const onSubmit = async (data) => {
     console.log("Login")
     try {
-      const response = await fetch("https://mernback-r8i0.onrender.com/api/login", {
+      const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
         headers: {
           "Content-Type" : "application/json"
@@ -93,9 +93,9 @@ const LoginPage = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="email-login">
             <label htmlFor="email"><b>Email</b></label>
-            <input className="login-email" type="email" placeholder="name@abc.com" {...register("email")} />
+            <input className="login-email" id="email" type="email" placeholder="name@abc.com" {...register("email")} />
             <label htmlFor="password"><b>Password</b></label>
-            <input className="login-password" type="password" placeholder="6+ characters" {...register("password")} />
+            <input className="login-password" id="password" type="password" placeholder="6+ characters" {...register("password")} />
           </div>
           <div className="login-buttons">
           <button id="login-login-button" type="submit">

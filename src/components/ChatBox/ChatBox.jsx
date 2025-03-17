@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://mernback-r8i0.onrender.com");
+const socket = io.connect("http://localhost:3000");
 
 function ChatBox() {
 
@@ -34,7 +34,7 @@ function ChatBox() {
     const getMessages = async () => {
         try {
             const queryString = new URLSearchParams({projectID}).toString();
-            const response = await fetch(`https://mernback-r8i0.onrender.com/api/messages?${queryString}`, {
+            const response = await fetch(`http://localhost:3000/api/messages?${queryString}`, {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -93,7 +93,7 @@ function SendText({setUserData, userData, email, projectID, scrollToBottom}) {
         const data = {email, projectID, message, time}
 
         try {
-            const response = await fetch("https://mernback-r8i0.onrender.com/api/messages", {
+            const response = await fetch("http://localhost:3000/api/messages", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
